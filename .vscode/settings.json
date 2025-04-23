@@ -1,0 +1,10 @@
+{
+    "[ts][tsx]": {
+        "editor.defaultFormatter": "biomejs.biome",
+        "editor.formatOnSave": true,
+    },
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+    }
+}
