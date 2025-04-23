@@ -6,7 +6,8 @@ const sketch = (p: any) => {
 	let seed = 8;
 	let t: number;
 	let num: number;
-	let radius: number, mySize, margin;
+	let radius: number;
+    let mySize: number; 
 	let sizes = [];
 	let stars: {
 		x: number;
@@ -22,7 +23,6 @@ const sketch = (p: any) => {
 
 	p.setup = () => {
 		mySize = p.min(p.windowWidth, p.windowHeight);
-		margin = mySize / 100;
 		p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
 		p.background("#202020");
 
