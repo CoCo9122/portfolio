@@ -7,7 +7,7 @@ const sketch = (p: any) => {
 	let t: number;
 	let num: number;
 	let radius: number;
-    let mySize: number; 
+	let mySize: number;
 	let sizes = [];
 	let stars: {
 		x: number;
