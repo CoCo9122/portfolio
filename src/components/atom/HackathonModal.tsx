@@ -429,7 +429,7 @@ export const XRHackathonModal = ({
 			"https://www.softbank.jp/biz/blog/cloud-technology/articles/202412/enxross-finalist-react-8thwall/",
 		demoVideo: {
 			type: "local",
-			url: "/movies/xr_hackathon.mp4",
+			url: "./movies/xr_hackathon.mp4",
 		},
 	};
 
