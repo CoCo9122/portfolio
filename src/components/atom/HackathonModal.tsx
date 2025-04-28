@@ -153,7 +153,7 @@ export const HackathonModal = ({
 							title="貢献"
 							content={
 								<UnorderedList spacing={2} pl={4}>
-									{hackathonData.contributions.map((contribution, index) => {
+									{hackathonData.contributions.map((contribution) => {
 										let items = contribution.split(": ");
 
 										return (
@@ -172,7 +172,7 @@ export const HackathonModal = ({
 							title="学び"
 							content={
 								<UnorderedList spacing={2} pl={4}>
-									{hackathonData.learnings.map((learning, index) => {
+									{hackathonData.learnings.map((learning) => {
 										let items = learning.split(": ");
 
 										return (
@@ -310,7 +310,7 @@ export const HackathonModal = ({
 													AI
 												</Heading>
 												<UnorderedList pl={4}>
-													{hackathonData.requirements.ai.map((tech, index) => (
+													{hackathonData.requirements.ai.map((tech) => (
 														<ListItem key={tech}>
 															<Text>{tech}</Text>
 														</ListItem>
@@ -326,7 +326,7 @@ export const HackathonModal = ({
 												</Heading>
 												<UnorderedList pl={4}>
 													{hackathonData.requirements.cicd.map(
-														(cicd, index) => (
+														(cicd) => (
 															<ListItem key={cicd}>
 																<Text>{cicd}</Text>
 															</ListItem>
@@ -341,7 +341,7 @@ export const HackathonModal = ({
 												周辺ツール
 											</Heading>
 											<UnorderedList pl={4}>
-												{hackathonData.requirements.tools.map((tool, index) => (
+												{hackathonData.requirements.tools.map((tool) => (
 													<ListItem key={tool}>
 														<Text>{tool}</Text>
 													</ListItem>
