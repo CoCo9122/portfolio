@@ -38,7 +38,6 @@ const AchievementItem = ({
 	imageUrl,
 	link,
 	isHackathon,
-	hackathonType,
 	onDetailsClick,
 }: AchievementItemProps) => {
 	return (
@@ -87,7 +86,7 @@ const AchievementItem = ({
 
 export const AchievementsSection = () => {
 	// State to track which hackathon modal to open
-	const [currentHackathon, setCurrentHackathon] = useState<HackathonType>(null);
+	const [_, setCurrentHackathon] = useState<HackathonType>(null);
 
 	// Disclosures for each modal
 	const xrHackathonModal = useDisclosure();
