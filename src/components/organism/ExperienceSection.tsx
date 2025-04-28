@@ -19,14 +19,14 @@ export const ExperienceSection = () => {
 			description: "全社規模のデータ基盤運用担当",
 			tags: ["CDP", "Redshift", "DataBricks"],
 		},
-        {
+		{
 			title: "社内の不正管理システム運用",
 			company: "ソフトバンク株式会社",
 			period: "2023年4月〜2025年3月",
 			description: "全社規模の不正管理システム運用担当",
 			tags: [],
 		},
-        {
+		{
 			title: "社内の分析システム運用",
 			company: "ソフトバンク株式会社",
 			period: "2023年4月〜2025年3月",

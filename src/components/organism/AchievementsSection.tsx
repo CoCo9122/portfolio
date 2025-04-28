@@ -7,16 +7,29 @@ import {
 	VStack,
 	List,
 	ListItem,
+	ButtonGroup,
+	useDisclosure,
 } from "@chakra-ui/react";
 import { SectionHeading } from "../molecule/SectionHeading";
 import { Container } from "../atom/Container";
 import { Button } from "../atom/Button";
+import { useState } from "react";
+import {
+	XRHackathonModal,
+	AIAgentHackathonModal,
+} from "../atom/HackathonModal";
+
+// Define the type of hackathon for modal selection
+type HackathonType = "XR" | "AI_AGENT" | null;
 
 interface AchievementItemProps {
 	title: string;
 	description: string;
 	imageUrl: string;
 	link?: string;
+	isHackathon?: boolean;
+	hackathonType?: HackathonType;
+	onDetailsClick?: () => void;
 }
 
 const AchievementItem = ({
@@ -24,6 +37,9 @@ const AchievementItem = ({
 	description,
 	imageUrl,
 	link,
+	isHackathon,
+	hackathonType,
+	onDetailsClick,
 }: AchievementItemProps) => {
 	return (
 		<Box bg="white" p={6} borderRadius="lg" mb={6} boxShadow="md">
@@ -37,11 +53,23 @@ const AchievementItem = ({
 						{title}
 					</Heading>
 					<Text mb={4}>{description}</Text>
-					{link && (
-						<Button as="a" href={link} target="_blank" size="sm">
-							詳細を見る
-						</Button>
-					)}
+					<ButtonGroup spacing={3}>
+						{link && (
+							<Button as="a" href={link} target="_blank" size="sm">
+								記事を見る
+							</Button>
+						)}
+						{isHackathon && (
+							<Button
+								size="sm"
+								variant="outline"
+								colorScheme="green"
+								onClick={onDetailsClick}
+							>
+								詳細を見る
+							</Button>
+						)}
+					</ButtonGroup>
 				</Box>
 				<Box flex="1" minW={{ base: "100%", md: "250px" }}>
 					<Image
@@ -58,6 +86,23 @@ const AchievementItem = ({
 };
 
 export const AchievementsSection = () => {
+	// State to track which hackathon modal to open
+	const [currentHackathon, setCurrentHackathon] = useState<HackathonType>(null);
+
+	// Disclosures for each modal
+	const xrHackathonModal = useDisclosure();
+	const aiAgentHackathonModal = useDisclosure();
+
+	// Handler for opening the appropriate modal
+	const handleOpenModal = (hackathonType: HackathonType) => {
+		setCurrentHackathon(hackathonType);
+		if (hackathonType === "XR") {
+			xrHackathonModal.onOpen();
+		} else if (hackathonType === "AI_AGENT") {
+			aiAgentHackathonModal.onOpen();
+		}
+	};
+
 	const awards = [
 		{
 			title: "enXross XRHackathonのパートナー受賞",
@@ -65,6 +110,8 @@ export const AchievementsSection = () => {
 				"XR技術を活用した革新的なソリューションの開発でパートナー賞を受賞",
 			imageUrl: "images/xr-hackthon.webp",
 			link: "https://www.softbank.jp/biz/blog/cloud-technology/articles/202412/enxross-finalist-react-8thwall/",
+			isHackathon: true,
+			hackathonType: "XR" as HackathonType,
 		},
 		{
 			title: "AI Agent Hackathon with Google Cloud",
@@ -72,6 +119,8 @@ export const AchievementsSection = () => {
 				"Google Cloudを活用したAIエージェント開発ハッカソンにて第2位を受賞",
 			imageUrl: "images/ai-agent-hackathon.jpg",
 			link: "https://zenn.dev/hackathons/2024-google-cloud-japan-ai-hackathon",
+			isHackathon: true,
+			hackathonType: "AI_AGENT" as HackathonType,
 		},
 	];
 
@@ -110,6 +159,11 @@ export const AchievementsSection = () => {
 								description={award.description}
 								imageUrl={award.imageUrl}
 								link={award.link}
+								isHackathon={award.isHackathon}
+								hackathonType={award.hackathonType}
+								onDetailsClick={() =>
+									award.hackathonType && handleOpenModal(award.hackathonType)
+								}
 							/>
 						))}
 					</Box>
@@ -144,6 +198,16 @@ export const AchievementsSection = () => {
 						</Box>
 					</Box>
 				</VStack>
+
+				{/* Hackathon Modals */}
+				<XRHackathonModal
+					isOpen={xrHackathonModal.isOpen}
+					onClose={xrHackathonModal.onClose}
+				/>
+				<AIAgentHackathonModal
+					isOpen={aiAgentHackathonModal.isOpen}
+					onClose={aiAgentHackathonModal.onClose}
+				/>
 			</Container>
 		</Box>
 	);
