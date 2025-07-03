@@ -1,7 +1,7 @@
-import { Box, VStack, Link, Flex } from "@chakra-ui/react";
-import { SectionHeading } from "../molecule/SectionHeading";
+import { Box, Flex, Link, VStack } from "@chakra-ui/react";
 import { Container } from "../atom/Container";
 import { Text } from "../atom/Text";
+import { SectionHeading } from "../molecule/SectionHeading";
 
 export const ContactSection = () => {
 	return (

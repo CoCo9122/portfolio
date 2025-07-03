@@ -1,23 +1,82 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { HomePage } from "./components/page/HomePage";
 
-// Extending the theme to customize it according to our portfolio design
+// Modern Tech Portfolio Theme with dark mode and futuristic design
 const theme = extendTheme({
+	config: {
+		initialColorMode: "dark",
+		useSystemColorMode: false,
+	},
 	colors: {
-		blue: {
-			500: "#3b82f6", // accent
-			600: "#2563eb", // primary
-			700: "#1d4ed8", // hover
+		brand: {
+			50: "#e6fffa",
+			100: "#b2f5ea",
+			200: "#81e6d9",
+			300: "#4fd1c7",
+			400: "#38b2ac",
+			500: "#319795", // Primary cyan
+			600: "#2c7a7b",
+			700: "#285e61",
+			800: "#234e52",
+			900: "#1d4044",
 		},
-		gray: {
-			50: "#f9fafb",
-			500: "#4b5563", // secondary
-			800: "#1f2937", // dark
+		purple: {
+			400: "#9f7aea",
+			500: "#805ad5",
+			600: "#6b46c1",
+		},
+		cyan: {
+			400: "#00d4ff",
+			500: "#00bcd4",
+			600: "#0097a7",
+		},
+		dark: {
+			50: "#f7fafc",
+			100: "#edf2f7",
+			200: "#e2e8f0",
+			300: "#cbd5e0",
+			400: "#a0aec0",
+			500: "#718096",
+			600: "#4a5568",
+			700: "#2d3748",
+			800: "#1a202c",
+			900: "#171923",
 		},
 	},
 	fonts: {
-		heading: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-		body: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+		heading: `'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif`,
+		body: `'Inter', 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif`,
+	},
+	styles: {
+		global: (props: { colorMode: string }) => ({
+			body: {
+				bg: props.colorMode === "dark" ? "dark.900" : "white",
+				color: props.colorMode === "dark" ? "white" : "dark.900",
+			},
+		}),
+	},
+	components: {
+		Button: {
+			variants: {
+				gradient: {
+					background: "linear-gradient(45deg, #805ad5, #00d4ff)",
+					color: "white",
+					_hover: {
+						background: "linear-gradient(45deg, #6b46c1, #0097a7)",
+						transform: "translateY(-2px)",
+						boxShadow: "0 10px 25px rgba(0, 212, 255, 0.3)",
+					},
+					transition: "all 0.3s ease",
+				},
+				ghost: {
+					color: "brand.400",
+					_hover: {
+						bg: "rgba(56, 178, 172, 0.1)",
+						color: "brand.300",
+					},
+				},
+			},
+		},
 	},
 });
 

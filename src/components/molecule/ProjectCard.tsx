@@ -1,4 +1,4 @@
-import { Box, Image, VStack, Heading, Text, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { Badge } from "../atom/Badge";
 import { Button } from "../atom/Button";
 

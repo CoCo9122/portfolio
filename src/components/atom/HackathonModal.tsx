@@ -1,22 +1,22 @@
 import {
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalFooter,
-	ModalBody,
-	ModalCloseButton,
-	Button,
-	Text,
+	AspectRatio,
 	Box,
-	Heading,
-	VStack,
-	UnorderedList,
-	ListItem,
+	Button,
 	Divider,
 	Grid,
 	GridItem,
-	AspectRatio,
+	Heading,
+	ListItem,
+	Modal,
+	ModalBody,
+	ModalCloseButton,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay,
+	Text,
+	UnorderedList,
+	VStack,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 
@@ -154,7 +154,7 @@ export const HackathonModal = ({
 							content={
 								<UnorderedList spacing={2} pl={4}>
 									{hackathonData.contributions.map((contribution) => {
-										let items = contribution.split(": ");
+										const items = contribution.split(": ");
 
 										return (
 											<ListItem key={contribution}>
@@ -173,7 +173,7 @@ export const HackathonModal = ({
 							content={
 								<UnorderedList spacing={2} pl={4}>
 									{hackathonData.learnings.map((learning) => {
-										let items = learning.split(": ");
+										const items = learning.split(": ");
 
 										return (
 											<ListItem key={learning}>
@@ -325,13 +325,11 @@ export const HackathonModal = ({
 													CI/CD
 												</Heading>
 												<UnorderedList pl={4}>
-													{hackathonData.requirements.cicd.map(
-														(cicd) => (
-															<ListItem key={cicd}>
-																<Text>{cicd}</Text>
-															</ListItem>
-														),
-													)}
+													{hackathonData.requirements.cicd.map((cicd) => (
+														<ListItem key={cicd}>
+															<Text>{cicd}</Text>
+														</ListItem>
+													))}
 												</UnorderedList>
 											</Box>
 										)}

@@ -1,4 +1,4 @@
-import { Badge as ChakraBadge, BadgeProps } from "@chakra-ui/react";
+import { type BadgeProps, Badge as ChakraBadge } from "@chakra-ui/react";
 
 interface CustomBadgeProps extends BadgeProps {
 	children: React.ReactNode;
