@@ -1,32 +1,95 @@
-import { Box, SimpleGrid, Heading, List, ListItem } from "@chakra-ui/react";
-import { SectionHeading } from "../molecule/SectionHeading";
+import {
+	Box,
+	HStack,
+	Heading,
+	List,
+	ListItem,
+	SimpleGrid,
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { Container } from "../atom/Container";
+import { SectionHeading } from "../molecule/SectionHeading";
 
 interface SkillCategoryProps {
 	title: string;
 	skills: string[];
+	icon: string;
 }
 
-const SkillCategory = ({ title, skills }: SkillCategoryProps) => {
+const MotionBox = motion(Box);
+const MotionListItem = motion(ListItem);
+
+const SkillCategory = ({ title, skills, icon }: SkillCategoryProps) => {
 	return (
-		<Box>
-			<Heading as="h3" size="md" mb={4}>
-				{title}
-			</Heading>
-			<List spacing={2}>
-				{skills.map((skill) => (
-					<ListItem
-						key={skill}
-						bg="white"
-						p={2}
-						borderRadius="md"
-						boxShadow="sm"
+		<MotionBox
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.6 }}
+			viewport={{ once: true }}
+		>
+			<Box
+				bg="rgba(56, 178, 172, 0.03)"
+				p={6}
+				borderRadius="2xl"
+				border="1px solid"
+				borderColor="brand.400"
+				backdropFilter="blur(10px)"
+				h="full"
+				_hover={{
+					borderColor: "cyan.400",
+					boxShadow: "0 10px 30px rgba(0, 212, 255, 0.1)",
+				}}
+				transition="all 0.3s ease"
+			>
+				<HStack mb={6} spacing={3}>
+					<Box
+						fontSize="2xl"
+						color="brand.400"
+						display="flex"
+						alignItems="center"
+						justifyContent="center"
+						width="40px"
+						height="40px"
+						bg="rgba(56, 178, 172, 0.1)"
+						borderRadius="lg"
 					>
-						{skill}
-					</ListItem>
-				))}
-			</List>
-		</Box>
+						{icon}
+					</Box>
+					<Heading as="h3" size="lg" color="white" fontWeight="700">
+						{title}
+					</Heading>
+				</HStack>
+				<List spacing={3}>
+					{skills.map((skill, index) => (
+						<MotionListItem
+							key={skill}
+							initial={{ opacity: 0, x: -20 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							transition={{ duration: 0.4, delay: index * 0.1 }}
+							viewport={{ once: true }}
+						>
+							<Box
+								p={3}
+								bg="rgba(255, 255, 255, 0.02)"
+								borderRadius="lg"
+								border="1px solid rgba(56, 178, 172, 0.2)"
+								color="gray.300"
+								fontWeight="500"
+								_hover={{
+									bg: "rgba(56, 178, 172, 0.05)",
+									borderColor: "brand.400",
+									color: "white",
+									transform: "translateX(5px)",
+								}}
+								transition="all 0.3s ease"
+							>
+								{skill}
+							</Box>
+						</MotionListItem>
+					))}
+				</List>
+			</Box>
+		</MotionBox>
 	);
 };
 
@@ -34,37 +97,68 @@ export const SkillsSection = () => {
 	const skillCategories = [
 		{
 			title: "フロントエンド",
-			skills: ["React (Next.js)", "Chakra UI", "jotai", "lexical", "Flutter"],
+			icon: "⚛️",
+			skills: ["React", "Flutter", "NextJS"],
 		},
 		{
 			title: "バックエンド",
-			skills: ["Python", "Django", "Flask", "Ruby (Ruby on Rails)"],
+			icon: "🚀",
+			skills: ["Python(Django/Flask/FastAPI)", "Ruby on Rails"],
 		},
 		{
 			title: "インフラ・クラウド",
-			skills: ["Kubernetes", "Docker", "GCP", "Firebase"],
+			icon: "☁️",
+			skills: ["Kubernetes", "Docker", "GCP/AWS/Azure", "Firebase"],
 		},
 		{
 			title: "AI/ML",
-			skills: ["Tensorflow", "Pytorch", "Computer Vision"],
+			icon: "🤖",
+			skills: ["TensorFlow/PyTorch", "LangChain", "Computer Vision", "LLM/RAG"],
 		},
 		{
 			title: "勉強中の技術",
-			skills: ["Web3.0 (Blockchain, イーサリアム, Wallet)", "WebAR技術", "MCP"],
+			icon: "📚",
+			skills: ["Web3.0 & Blockchain", "WebAR技術", "MCP"],
 		},
 	];
 
 	return (
-		<Box as="section" py={16} bg="gray.50" id="skills">
-			<Container>
+		<Box
+			as="section"
+			py={20}
+			bg="dark.900"
+			id="skills"
+			position="relative"
+			overflow="hidden"
+		>
+			{/* Background effects */}
+			<Box
+				position="absolute"
+				top="0"
+				left="0"
+				width="100%"
+				height="100%"
+				opacity="0.02"
+				backgroundImage="radial-gradient(circle at 25% 25%, #38b2ac 0%, transparent 50%), radial-gradient(circle at 75% 75%, #9f7aea 0%, transparent 50%)"
+			/>
+
+			<Container position="relative" zIndex={1}>
 				<SectionHeading>技術スタック</SectionHeading>
-				<SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={8}>
-					{skillCategories.map((category) => (
-						<SkillCategory
+				<SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+					{skillCategories.map((category, index) => (
+						<motion.div
 							key={category.title}
-							title={category.title}
-							skills={category.skills}
-						/>
+							initial={{ opacity: 0, y: 50 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, delay: index * 0.1 }}
+							viewport={{ once: true }}
+						>
+							<SkillCategory
+								title={category.title}
+								skills={category.skills}
+								icon={category.icon}
+							/>
+						</motion.div>
 					))}
 				</SimpleGrid>
 			</Container>

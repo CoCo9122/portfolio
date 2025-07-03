@@ -1,8 +1,8 @@
 import { Box, VStack } from "@chakra-ui/react";
-import { SectionHeading } from "../molecule/SectionHeading";
 import { Container } from "../atom/Container";
 import { Heading } from "../atom/Heading";
 import { Text } from "../atom/Text";
+import { SectionHeading } from "../molecule/SectionHeading";
 
 interface VisionItemProps {
 	title: string;
@@ -23,14 +23,15 @@ const VisionItem = ({ title, description }: VisionItemProps) => {
 export const FutureSection = () => {
 	const visionItems = [
 		{
-			title: "データサイエンティストへの転身",
+			title:
+				"データ・AI・マテリアルインフォマティクスなどの高度技術領域への深耕",
 			description:
-				"これまでのPythonやDjangoなどのバックエンド開発経験を活かし、データ分析やマシンラーニングの分野でキャリアを展開したいと考えています。受賞歴やジャーナル論文の執筆経験も、データサイエンティストとしての実績として評価されると思います。今後はデータ分析やAI/MLに関する学習を深め、スキルアップを図っていきたいと思います。",
+				"PythonやFastAPI、LangChainを用いたAIシステム開発の経験を土台に、今後はデータ分析・機械学習・生成AIの応用をさらに深めていきたいと考えています。学術論文の執筆やAIコンペティションでの受賞実績もあり、実務と研究の両面から価値を提供できる人材を目指しています。",
 		},
 		{
-			title: "Web3.0やAR技術への取り組み",
+			title: "Web3・XR・生成AIなどの先進領域へのチャレンジ",
 			description:
-				"新しい技術への探究心が強く、Web3.0分野(ブロックチェーン、イーサリアムなど)やAR技術の開発に積極的に取り組んでいきたいと考えています。これらの先進的な技術分野に挑戦し、新しい価値を生み出していくことに大きな興味があります。",
+				"これまでARゲーム作成プラットフォームや、WebアプリにAR・生成AIを組み込んだ開発を行ってきました。今後はWeb3（ブロックチェーンやスマートコントラクト）や空間コンピューティング（XR）、マルチモーダル生成AIなど、より未来志向の技術にも積極的に関わり、価値創出の最前線に立つエンジニアとして活躍していきたいと考えています。",
 		},
 	];
 

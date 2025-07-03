@@ -1,4 +1,4 @@
-import { Heading as ChakraHeading, HeadingProps } from "@chakra-ui/react";
+import { Heading as ChakraHeading, type HeadingProps } from "@chakra-ui/react";
 
 interface CustomHeadingProps extends HeadingProps {
 	children: React.ReactNode;

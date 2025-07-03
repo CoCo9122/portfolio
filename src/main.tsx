@@ -28,8 +28,11 @@ if (import.meta.env.PROD) {
 	addGoogleAnalytics();
 }
 
-createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+	createRoot(rootElement).render(
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>,
+	);
+}

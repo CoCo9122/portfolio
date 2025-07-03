@@ -1,15 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import type React from "react";
+import { useEffect, useRef } from "react";
 declare const p5: any;
 
 // 描画処理
 const sketch = (p: any) => {
-	let seed = 8;
+	const seed = 8;
 	let t: number;
 	let num: number;
 	let radius: number;
 	let mySize: number;
-	let sizes = [];
-	let stars: {
+	const sizes = [];
+	const stars: {
 		x: number;
 		y: number;
 		size: number;
@@ -17,9 +18,9 @@ const sketch = (p: any) => {
 		vx: number;
 		vy: number;
 	}[] = [];
-	let cursorGlow = { x: 0, y: 0, alpha: 0 };
+	const cursorGlow = { x: 0, y: 0, alpha: 0 };
 
-	let v_planet = [];
+	const v_planet: any[] = [];
 
 	p.setup = () => {
 		mySize = p.min(p.windowWidth, p.windowHeight);
@@ -55,15 +56,15 @@ const sketch = (p: any) => {
 
 	const drawPlanets = () => {
 		for (let i = 0; i < num; i++) {
-			let a = (p.TAU / num) * i;
-			let x = (radius * p.sin(a + t)) / p.random(5, 3) / 1.0;
-			let y = (radius * p.cos(a + t)) / p.random(3, 5) / 1.0;
+			const a = (p.TAU / num) * i;
+			const x = (radius * p.sin(a + t)) / p.random(5, 3) / 1.0;
+			const y = (radius * p.cos(a + t)) / p.random(3, 5) / 1.0;
 			v_planet[i] = p.createVector(x, y);
 		}
 		p.push();
 		for (let q = 0; q < 1 / 5; q += 2 * p.random(0.01, 0.02)) {
 			for (let j = 0; j < 1; j++) {
-				let n = p.noise(q * t, j * t, p.frameCount * 0.01);
+				const n = p.noise(q * t, j * t, p.frameCount * 0.01);
 				p.rotateX(p.random(p.TAU) + p.sin(-t) / 5 + q);
 				p.rotateY(p.random(p.TAU) + p.cos(t) / 5 + q);
 				p.rotateZ(p.random(p.TAU) + p.sin(-t) / 5 + q);
@@ -71,20 +72,20 @@ const sketch = (p: any) => {
 				p.fill("#f0f0f0");
 
 				for (let i = 0; i < num; i += 8) {
-					let d = p.random(radius / 2, radius / 4) / 1;
+					const d = p.random(radius / 2, radius / 4) / 1;
 					p.push();
 					p.rotateX(p.random(p.TAU) + p.sin(t));
 					p.rotateY(p.random(p.TAU) + p.cos(-t) + n / 100);
 					p.rotateZ(p.random(p.TAU) + 2 * p.sin(2 * t));
-					let z_plus = (1.25 * p.random(-d, d)) / 1;
+					const z_plus = (1.25 * p.random(-d, d)) / 1;
 					p.torus(z_plus, p.random(1), 100, 100);
 					p.pop();
 				}
 				for (let i = 0; i < num; i += 4) {
-					let d = (1.5 + p.sin(t)) * p.random(radius / 2, radius / 4);
-					let x_plus = (0.5 * p.random(-d, d)) / 1;
-					let y_plus = (0.5 * p.random(-d, d)) / 1;
-					let z_plus = (0.5 * p.random(-d, d)) / 1;
+					const d = (1.5 + p.sin(t)) * p.random(radius / 2, radius / 4);
+					const x_plus = (0.5 * p.random(-d, d)) / 1;
+					const y_plus = (0.5 * p.random(-d, d)) / 1;
+					const z_plus = (0.5 * p.random(-d, d)) / 1;
 					p.stroke("#f0f0f0");
 					p.strokeWeight(p.random(0.5));
 					p.noFill();
@@ -107,17 +108,17 @@ const sketch = (p: any) => {
 		p.push();
 		p.rotateZ(p.frameCount * 0.0005);
 
-		for (let s of stars) {
-			let flicker = p.sin(p.frameCount * 0.05 + s.x * 0.01) * 50;
-			let brightness = p.constrain(s.brightness + flicker, 150, 255);
+		for (const s of stars) {
+			const flicker = p.sin(p.frameCount * 0.05 + s.x * 0.01) * 50;
+			const brightness = p.constrain(s.brightness + flicker, 150, 255);
 
 			p.fill(255, brightness);
 			p.noStroke();
 			p.circle(s.x, s.y, s.size);
 
-			let d = p.dist(s.x, s.y, cursorGlow.x, cursorGlow.y);
+			const d = p.dist(s.x, s.y, cursorGlow.x, cursorGlow.y);
 			if (d < 100) {
-				let angle = p.atan2(s.y - cursorGlow.y, s.x - cursorGlow.x);
+				const angle = p.atan2(s.y - cursorGlow.y, s.x - cursorGlow.x);
 				s.vx += p.cos(angle) * 0.5;
 				s.vy += p.sin(angle) * 0.5;
 			}
