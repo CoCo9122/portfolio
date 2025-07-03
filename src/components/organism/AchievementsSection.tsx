@@ -1,23 +1,23 @@
 import {
 	Box,
+	ButtonGroup,
 	Flex,
 	Heading,
 	Image,
-	Text,
-	VStack,
 	List,
 	ListItem,
-	ButtonGroup,
+	Text,
+	VStack,
 	useDisclosure,
 } from "@chakra-ui/react";
-import { SectionHeading } from "../molecule/SectionHeading";
-import { Container } from "../atom/Container";
-import { Button } from "../atom/Button";
 import { useState } from "react";
+import { Button } from "../atom/Button";
+import { Container } from "../atom/Container";
 import {
-	XRHackathonModal,
 	AIAgentHackathonModal,
+	XRHackathonModal,
 } from "../atom/HackathonModal";
+import { SectionHeading } from "../molecule/SectionHeading";
 
 // Define the type of hackathon for modal selection
 type HackathonType = "XR" | "AI_AGENT" | null;
@@ -120,6 +120,22 @@ export const AchievementsSection = () => {
 			link: "https://zenn.dev/hackathons/2024-google-cloud-japan-ai-hackathon",
 			isHackathon: true,
 			hackathonType: "AI_AGENT" as HackathonType,
+		},
+		{
+			title: "ソフトバンク × 博報堂テクノロジーズ 競争ハッカソン",
+			description: "AWSと福島の人の魅力を伝える開発ハッカソンにて第3位を受賞",
+			imageUrl: "",
+			link: "https://k-tai.watch.impress.co.jp/docs/news/2022257.html",
+			isHackathon: false,
+			hackathonType: null,
+		},
+		{
+			title: "AWS Summit Japan 2025 生成AIハッカソン",
+			description: "AWSの生成AIを活用した開発ハッカソンにて決勝戦に進出",
+			imageUrl: "",
+			link: "https://pages.awscloud.com/summit-japan-2025-genai-hackathon-info.html",
+			isHackathon: false,
+			hackathonType: null,
 		},
 	];
 

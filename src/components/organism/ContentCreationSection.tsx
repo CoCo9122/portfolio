@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { Box, SimpleGrid, Heading, VStack } from "@chakra-ui/react";
-import { SectionHeading } from "../molecule/SectionHeading";
+import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { Container } from "../atom/Container";
 import { ProjectCard } from "../molecule/ProjectCard";
+import { SectionHeading } from "../molecule/SectionHeading";
 
 interface ZennArticle {
 	title: string;
@@ -75,7 +75,7 @@ export const ContentCreationSection = () => {
 						// Limit description length
 						const shortDescription =
 							description.length > 100
-								? description.substring(0, 100) + "..."
+								? `${description.substring(0, 100)}...`
 								: description;
 
 						return {

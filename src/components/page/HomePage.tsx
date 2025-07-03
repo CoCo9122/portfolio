@@ -1,11 +1,11 @@
-import { MainLayout } from "../template/MainLayout";
 import { AboutSection } from "../organism/AboutSection";
-import { SkillsSection } from "../organism/SkillsSection";
-import { ExperienceSection } from "../organism/ExperienceSection";
-import { ContentCreationSection } from "../organism/ContentCreationSection";
 import { AchievementsSection } from "../organism/AchievementsSection";
-import { FutureSection } from "../organism/FutureSection";
 import { ContactSection } from "../organism/ContactSection";
+import { ContentCreationSection } from "../organism/ContentCreationSection";
+import { ExperienceSection } from "../organism/ExperienceSection";
+import { FutureSection } from "../organism/FutureSection";
+import { SkillsSection } from "../organism/SkillsSection";
+import { MainLayout } from "../template/MainLayout";
 
 export const HomePage = () => {
 	return (
