@@ -8,7 +8,7 @@ export const ExperienceSection = () => {
 		{
 			title: "コールセンター向けの生成AIシステム開発",
 			company: "ソフトバンク株式会社",
-			period: "2025年4月〜現在",
+			period: "2025年4月〜2025年9月",
 			description:
 				"RAG構成を用いたチャット初回対応自動化システムの開発。FAQのベクトル化や検索精度改善、開発フロー整備まで幅広く担当。",
 			tags: ["Python", "LangChain", "Azure AI Search", "Azure", "RAG"],
@@ -40,9 +40,9 @@ export const ExperienceSection = () => {
 		{
 			title: "Axross Recipe開発",
 			company: "ソフトバンク株式会社",
-			period: "2023年12月〜現在",
+			period: "2023年12月〜2025年9月",
 			description:
-				"Webフルスタックエンジニアとして新規プロダクトをReact＋Railsで構築。CI/CDやUX設計にも幅広く関与。",
+				"WebフルスタックエンジニアとしてReact＋Railsで開発。CI/CDにも関与。",
 			tags: [
 				"React",
 				"Ruby on Rails",
@@ -84,6 +84,14 @@ export const ExperienceSection = () => {
 			description:
 				"産業医業務を支援するOS構想のSaaS開発をPMFに向けて推進。技術選定や要件定義をリード。",
 			tags: ["PMF", "SaaS", "プロダクト開発", "医療DX"],
+		},
+		{
+			title: "10億Agent対応の向けたプロジェクトのAgent開発",
+			company: "ソフトバンク株式会社",
+			period: "2025年10月〜2026年1月",
+			description:
+				"10億Agent対応の向けたプロジェクトにて、主要Agentの設計・開発を担当。高負荷環境下での安定稼働を実現。",
+			tags: ["Python", "AWS"],
 		},
 	];
 
