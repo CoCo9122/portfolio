@@ -98,7 +98,12 @@ export const SkillsSection = () => {
 		{
 			title: "フロントエンド",
 			icon: "⚛️",
-			skills: ["React", "Flutter", "NextJS"],
+			skills: ["React", "NextJS"],
+		},
+		{
+			title: "nativeアプリ開発",
+			icon: "📱",
+			skills: ["Swift", "Flutter"],
 		},
 		{
 			title: "バックエンド",

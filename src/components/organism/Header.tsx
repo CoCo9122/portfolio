@@ -12,7 +12,7 @@ export const Header = () => {
 		<Box
 			as="header"
 			position="relative"
-			minH="100vh"
+			minH="30vh"
 			display="flex"
 			alignItems="center"
 			overflow="hidden"
@@ -138,32 +138,6 @@ export const Header = () => {
 								フルスタック＆AIエンジニア
 							</Box>
 						</Text>
-					</MotionBox>
-
-					{/* Scroll indicator */}
-					<MotionBox
-						position="absolute"
-						bottom="-100px"
-						left="50%"
-						transform="translateX(-80%)"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1, y: [0, 10, 0] }}
-						transition={{
-							opacity: { duration: 1, delay: 2 },
-							y: { duration: 2, repeat: Number.POSITIVE_INFINITY },
-						}}
-					>
-						<VStack spacing={2} color="brand.400">
-							<Text fontSize="xs" fontWeight="500">
-								SCROLL DOWN
-							</Text>
-							<Box
-								width="2px"
-								height="30px"
-								bg="brand.400"
-								borderRadius="full"
-							/>
-						</VStack>
 					</MotionBox>
 				</MotionVStack>
 			</Container>
