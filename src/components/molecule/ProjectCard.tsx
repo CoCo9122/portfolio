@@ -44,11 +44,11 @@ export const ProjectCard = ({
 					{title}
 				</Heading>
 				{company && (
-					<Text fontWeight="bold">
+					<Text fontWeight="bold" color="blackAlpha.900">
 						<strong>{company}</strong> {period && `| ${period}`}
 					</Text>
 				)}
-				<Text>{description}</Text>
+				<Text color="blackAlpha.800">{description}</Text>
 				<Flex flexWrap="wrap">
 					{tags.map((tag) => (
 						<Badge key={tag}>{tag}</Badge>
