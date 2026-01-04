@@ -48,10 +48,12 @@ const AchievementItem = ({
 				alignItems="center"
 			>
 				<Box flex="2" minW={{ base: "100%", md: "300px" }}>
-					<Heading as="h4" size="md" mb={3}>
+					<Heading as="h4" size="md" mb={3} color="blackAlpha.900">
 						{title}
 					</Heading>
-					<Text mb={4}>{description}</Text>
+					<Text color="blackAlpha.800" mb={4}>
+						{description}
+					</Text>
 					<ButtonGroup spacing={3}>
 						{link && (
 							<Button as="a" href={link} target="_blank" size="sm">
@@ -206,7 +208,7 @@ export const AchievementsSection = () => {
 							<List spacing={2}>
 								{certifications.map((cert) => (
 									<ListItem key={cert}>
-										<Text>{cert}</Text>
+										<Text color="blackAlpha.800">{cert}</Text>
 									</ListItem>
 								))}
 							</List>

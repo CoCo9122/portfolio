@@ -12,10 +12,10 @@ interface VisionItemProps {
 const VisionItem = ({ title, description }: VisionItemProps) => {
 	return (
 		<Box bg="white" p={6} borderRadius="lg" mb={6} boxShadow="md">
-			<Heading as="h3" size="md" mb={3}>
+			<Heading as="h3" size="md" mb={3} color="blackAlpha.900">
 				{title}
 			</Heading>
-			<Text>{description}</Text>
+			<Text color="blackAlpha.800">{description}</Text>
 		</Box>
 	);
 };
